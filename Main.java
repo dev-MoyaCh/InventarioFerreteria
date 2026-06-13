@@ -88,7 +88,7 @@ public class Main {
                 if (valor > 0) return valor;
                 System.out.println(" Debe ser mayor a 0.");
             } catch (NumberFormatException e) {
-                System.out.println(" Ingrese un número entero válido.");
+                System.out.println(" Ingrese un número entero  válido.");
             }
         }
     }
