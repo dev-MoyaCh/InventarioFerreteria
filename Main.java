@@ -71,6 +71,27 @@ public class Main {
         
     }
 
+    // 🔧 UTILIDADES DE ENTRADA
+    private static int leerOpcionMenu() {
+        try {
+            return Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    private static int leerIntPositivo(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            try {
+                int valor = Integer.parseInt(scanner.nextLine().trim());
+                if (valor > 0) return valor;
+                System.out.println(" Debe ser mayor a 0.");
+            } catch (NumberFormatException e) {
+                System.out.println(" Ingrese un número entero  válido.");
+            }
+        }
+    }
 
     private static double leerDouble(String mensaje) {
         while (true) {
