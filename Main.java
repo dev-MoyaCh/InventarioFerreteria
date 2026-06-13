@@ -72,6 +72,18 @@ public class Main {
     }
 
 
+    private static double leerDouble(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            try {
+                double valor = Double.parseDouble(scanner.nextLine().trim());
+                if (valor >= 0) return valor;
+                System.out.println(" No puede ser negativo.");
+            } catch (NumberFormatException e) {
+                System.out.println(" Ingrese un número válido.");
+            }
+        }
+    }
 
     
 }
