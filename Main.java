@@ -60,6 +60,11 @@ public class Main {
     }
 
     private static void consultarProducto() {
+         System.out.print("ID a consultar: ");
+        String id = scanner.nextLine().trim();
+        Producto p = inventario.buscarPorId(id);
+        if (p != null) System.out.println(" " + p);
+        else System.out.println(" Producto no encontrado.");
       
     }
 
@@ -71,7 +76,7 @@ public class Main {
         
     }
 
-    // 🔧 UTILIDADES DE ENTRADA
+    //  UTILIDADES DE ENTRADA
     private static int leerOpcionMenu() {
         try {
             return Integer.parseInt(scanner.nextLine().trim());
