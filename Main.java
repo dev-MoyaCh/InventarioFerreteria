@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-    
+    private static final Inventario inventario = new Inventario();
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -48,14 +48,36 @@ public class Main {
     }
 
     private static void registrarIngreso() {
+        System.out.print("ID: ");
+        String id = scanner.nextLine().trim();
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine().trim();
+        double precio = leerDouble("Precio unitario: ");
+        int cantidad = leerIntPositivo("Cantidad: ");
+        inventario.registrarIngreso(id, nombre, cantidad, precio);
+        System.out.println(" Ingreso registrado.");
         
     }
 
     private static void registrarSalida() {
+        System.out.print("ID del producto: ");
+        String id = scanner.nextLine().trim();
+        int cantidad = leerIntPositivo("Cantidad a retirar: ");
+        inventario.registrarSalida(id, cantidad);
+        System.out.println(" Salida registrada.");
         
     }
 
     private static void mostrarInventario() {
+        List<Producto> lista = inventario.obtenerInventario();
+        if (lista.isEmpty()) {
+            System.out.println(" El inventario está vacío.");
+            return;
+        }
+        System.out.println("\n INVENTARIO ACTUAL:");
+        System.out.println("ID         | NOMBRE                    | CANTIDAD | PRECIO");
+        System.out.println("----------------------------------------------------------------");
+        lista.forEach(System.out::println);
     
     }
 
@@ -94,6 +116,13 @@ public class Main {
     }
 
     private static void mostrarHistorial() {
+        List<Venta> historial = inventario.obtenerHistorialVentas();
+        if (historial.isEmpty()) {
+            System.out.println(" No hay ventas registradas.");
+            return;
+        }
+        System.out.println("\n HISTORIAL DE VENTAS:");
+        historial.forEach(System.out::println);
         
     }
 
