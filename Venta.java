@@ -107,3 +107,4 @@ public class Venta {
                 prodId, nombre, cantidad, precioUnitario, subtotal);
         }
     }
+}
