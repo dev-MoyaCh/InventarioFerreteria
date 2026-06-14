@@ -82,14 +82,36 @@ public class Main {
     }
 
     private static void consultarProducto() {
-        System.out.print("ID a consultar: ");
+         System.out.print("ID a consultar: ");
         String id = scanner.nextLine().trim();
         Producto p = inventario.buscarPorId(id);
         if (p != null) System.out.println(" " + p);
         else System.out.println(" Producto no encontrado.");
+      
     }
 
     private static void registrarVenta() {
+        System.out.println("\n REGISTRAR VENTA (escriba 'fin' para cerrar pedido)");
+        List<Inventario.ItemPedido> items = new ArrayList<>();
+        
+        while (true) {
+            System.out.print("ID producto: ");
+            String id = scanner.nextLine().trim();
+            if (id.equalsIgnoreCase("fin")) break;
+            if (id.isEmpty()) continue;
+            
+            int cantidad = leerIntPositivo("Cantidad: ");
+            items.add(new Inventario.ItemPedido(id, cantidad));
+        }
+
+        if (items.isEmpty()) {
+            System.out.println(" Venta cancelada: sin productos.");
+            return;
+        }
+
+        Venta venta = inventario.registrarVenta(items);
+        System.out.println("\n VENTA PROCESADA CORRECTAMENTE:");
+        System.out.println(venta);
         
     }
 
@@ -104,6 +126,27 @@ public class Main {
         
     }
 
+    //  UTILIDADES DE ENTRADA
+    private static int leerOpcionMenu() {
+        try {
+            return Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    private static int leerIntPositivo(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            try {
+                int valor = Integer.parseInt(scanner.nextLine().trim());
+                if (valor > 0) return valor;
+                System.out.println(" Debe ser mayor a 0.");
+            } catch (NumberFormatException e) {
+                System.out.println(" Ingrese un número entero  válido.");
+            }
+        }
+    }
 
     private static double leerDouble(String mensaje) {
         while (true) {
