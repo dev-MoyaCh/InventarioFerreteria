@@ -69,6 +69,27 @@ public class Main {
     }
 
     private static void registrarVenta() {
+        System.out.println("\n REGISTRAR VENTA (escriba 'fin' para cerrar pedido)");
+        List<Inventario.ItemPedido> items = new ArrayList<>();
+        
+        while (true) {
+            System.out.print("ID producto: ");
+            String id = scanner.nextLine().trim();
+            if (id.equalsIgnoreCase("fin")) break;
+            if (id.isEmpty()) continue;
+            
+            int cantidad = leerIntPositivo("Cantidad: ");
+            items.add(new Inventario.ItemPedido(id, cantidad));
+        }
+
+        if (items.isEmpty()) {
+            System.out.println(" Venta cancelada: sin productos.");
+            return;
+        }
+
+        Venta venta = inventario.registrarVenta(items);
+        System.out.println("\n VENTA PROCESADA CORRECTAMENTE:");
+        System.out.println(venta);
         
     }
 
