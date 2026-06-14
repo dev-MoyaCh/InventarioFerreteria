@@ -83,7 +83,7 @@ public class Venta {
         // AQUÍ ESTÁ TU MEJORA: Solo 3 líneas discretas antes del Total
         sb.append(String.format("   Subtotal:             $%,10.2f\n", getSubtotalBase()));
         sb.append(String.format("   IGV (18%%):            $%,10.2f\n", getMontoIGV()));
-        sb.append(String.format("💰 TOTAL:                $%,10.2f\n", total));
+        sb.append(String.format(" TOTAL:                $%,10.2f\n", total));
 
         return sb.toString();
     }
