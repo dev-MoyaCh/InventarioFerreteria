@@ -5,7 +5,7 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-       
+        cargarCatalogoInicial();
         
         int opcion;
         do {
@@ -161,6 +161,22 @@ public class Main {
                 System.out.println(" Ingrese un número válido.");
             }
         }
+    }
+    private static void cargarCatalogoInicial() {
+        System.out.println(" Cargando catálogo de ferretería...");
+        inventario.registrarIngreso("F01", "Martillo de Bola", 20, 15.50);
+        inventario.registrarIngreso("F02", "Destornillador Plano", 35, 8.75);
+        inventario.registrarIngreso("F03", "Destornillador Phillips", 30, 9.20);
+        inventario.registrarIngreso("F04", "Llave Inglesa 10\"", 15, 22.00);
+        inventario.registrarIngreso("F05", "Cinta Métrica 5m", 40, 12.30);
+        inventario.registrarIngreso("F06", "Taladro Percutor 600W", 10, 85.00);
+        inventario.registrarIngreso("F07", "Juego de Brocas (10pz)", 25, 18.50);
+        inventario.registrarIngreso("F08", "Clavos Acero (Caja 1kg)", 50, 6.40);
+        inventario.registrarIngreso("F09", "Tornillos Madera (Caja 100pz)", 45, 9.80);
+        inventario.registrarIngreso("F10", "Pintura Vinílica 4L", 12, 35.00);
+        inventario.registrarIngreso("F11", "Sierra para Mano", 18, 19.90);
+        inventario.registrarIngreso("F12", "Nivel de Burbuja 60cm", 22, 14.50);
+        System.out.println(" Catálogo listo.\n");
     }
 
     
