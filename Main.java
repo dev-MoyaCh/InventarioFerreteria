@@ -41,6 +41,8 @@ public class Main {
                 case 0 -> System.out.println("Saliendo...");
                 default -> System.out.println(" Opción no válida.");
             }
+        } catch (ProductoNoEncontradoException | StockInsuficienteException | EntradaInvalidaException e) {
+            System.out.println(" Error: " + e.getMessage());
         
         } catch (Exception e) {
             System.out.println(" Error inesperado: " + e.getMessage());

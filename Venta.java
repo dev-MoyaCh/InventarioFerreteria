@@ -67,7 +67,7 @@ public class Venta {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("🧾 Venta #").append(id)
+        sb.append(" Venta #").append(id)
           .append(" | Fecha: ")
           .append(fecha)
           .append("\n");
