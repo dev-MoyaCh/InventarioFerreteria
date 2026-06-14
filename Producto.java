@@ -23,7 +23,12 @@ public class Producto {
         this.cantidad += cantidad;
     }
 
-    
+    public void descontarStock(int cantidad) {
+        if (this.cantidad < cantidad) {
+            throw new StockInsuficienteException(nombre, this.cantidad, cantidad);
+        }
+        this.cantidad -= cantidad;
+    }
 
     private void validarCantidad(int valor, String campo) {
         if (valor <= 0) {
