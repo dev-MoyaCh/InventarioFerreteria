@@ -16,6 +16,12 @@ public class FizzBuzzTest {
             System.out.println("Prueba 2 correcta");
         }
 
+        if (!fizzBuzz.convertir(3).equals("Fizz")) {
+            System.out.println("Prueba 3 fallo");
+        } else {
+            System.out.println("Prueba 3 correcta");
+        }
+
     }
 
 }
