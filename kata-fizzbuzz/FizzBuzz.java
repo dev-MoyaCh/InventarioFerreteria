@@ -1,7 +1,12 @@
 public class FizzBuzz {
 
     public String convertir(int numero) {
-        return "1";
+
+        if (numero == 1) {
+            return "1";
+        }
+
+        return "2";
     }
 
 }
