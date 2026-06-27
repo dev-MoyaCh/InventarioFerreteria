@@ -33,6 +33,20 @@ public class InventarioTest {
             System.out.println("Prueba 3 fallo");
         }
 
+        // Prueba 4: Verificar inventario
+        if (inventario.obtenerInventario().size() == 1) {
+            System.out.println("Prueba 4 correcta");
+        } else {
+            System.out.println("Prueba 4 fallo");
+        }
+
+        // Prueba 5: Verificar historial de ventas
+        if (inventario.obtenerHistorialVentas().isEmpty()) {
+            System.out.println("Prueba 5 correcta");
+        } else {
+            System.out.println("Prueba 5 fallo");
+        }
+
     }
 
 }
