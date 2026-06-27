@@ -24,6 +24,15 @@ public class InventarioTest {
             System.out.println("Prueba 2 fallo");
         }
 
+        // Prueba 3: Registrar salida
+        inventario.registrarSalida("P001", 3);
+
+        if (inventario.buscarPorId("P001").getCantidad() == 12) {
+            System.out.println("Prueba 3 correcta");
+        } else {
+            System.out.println("Prueba 3 fallo");
+        }
+
     }
 
 }
