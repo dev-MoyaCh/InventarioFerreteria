@@ -5,9 +5,15 @@ public class FizzBuzzTest {
         FizzBuzz fizzBuzz = new FizzBuzz();
 
         if (!fizzBuzz.convertir(1).equals("1")) {
-            System.out.println("x Prueba fallo");
+            System.out.println("Prueba 1 fallo");
         } else {
-            System.out.println("◄ Prueba correcta");
+            System.out.println("Prueba 1 correcta");
+        }
+
+        if (!fizzBuzz.convertir(2).equals("2")) {
+            System.out.println("Prueba 2 fallo");
+        } else {
+            System.out.println("Prueba 2 correcta");
         }
 
     }
