@@ -4,7 +4,9 @@ public class InventarioTest {
 
         Inventario inventario = new Inventario();
 
-        // Prueba 1: Registrar ingreso
+        // ==========================
+        // PRUEBA 1: Registrar ingreso
+        // ==========================
         inventario.registrarIngreso("P001", "Martillo", 10, 25.50);
 
         Producto producto = inventario.buscarPorId("P001");
@@ -15,7 +17,9 @@ public class InventarioTest {
             System.out.println("Prueba 1 fallo");
         }
 
-        // Prueba 2: Actualizar stock
+        // ==================================
+        // PRUEBA 2: Actualizar stock
+        // ==================================
         inventario.registrarIngreso("P001", "Martillo", 5, 25.50);
 
         if (inventario.buscarPorId("P001").getCantidad() == 15) {
@@ -24,7 +28,9 @@ public class InventarioTest {
             System.out.println("Prueba 2 fallo");
         }
 
-        // Prueba 3: Registrar salida
+        // ==================================
+        // PRUEBA 3: Registrar salida
+        // ==================================
         inventario.registrarSalida("P001", 3);
 
         if (inventario.buscarPorId("P001").getCantidad() == 12) {
@@ -33,14 +39,18 @@ public class InventarioTest {
             System.out.println("Prueba 3 fallo");
         }
 
-        // Prueba 4: Verificar inventario
+        // ==================================
+        // PRUEBA 4: Verificar inventario
+        // ==================================
         if (inventario.obtenerInventario().size() == 1) {
             System.out.println("Prueba 4 correcta");
         } else {
             System.out.println("Prueba 4 fallo");
         }
 
-        // Prueba 5: Verificar historial de ventas
+        // ==================================
+        // PRUEBA 5: Verificar historial
+        // ==================================
         if (inventario.obtenerHistorialVentas().isEmpty()) {
             System.out.println("Prueba 5 correcta");
         } else {
