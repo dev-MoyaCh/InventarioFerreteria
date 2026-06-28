@@ -63,6 +63,18 @@ public class Venta {
     public double getSubtotalBase() { return total / (1 + TASA_IGV); }
     public double getMontoIGV() { return total - getSubtotalBase(); }
 
+    public void aplicarDescuento(double porcentaje) {
+        validarPorcentajeDescuento(porcentaje);
+        double montoDescontado = this.total * (porcentaje / 100.0);
+        this.total -= montoDescontado;
+    }
+
+    private void validarPorcentajeDescuento(double porcentaje) {
+        if (porcentaje < 0 || porcentaje > 100) {
+            throw new EntradaInvalidaException("El porcentaje de descuento debe estar entre 0 y 100.");
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
